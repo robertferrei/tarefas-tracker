@@ -33,6 +33,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-    name: 'Formulario'
+    name: 'FormularioCadastro'
 })
 </script>
