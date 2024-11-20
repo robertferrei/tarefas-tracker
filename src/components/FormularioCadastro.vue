@@ -37,24 +37,27 @@ export default defineComponent({
 
     data() {
         return {
-            tempoEmSegundos: 0
+            tempoEmSegundos: 0,
+            cronometro:0,
         }
     },
     computed: {
+        //adicionando um tempo decorrido para o conometro 
         tempoDecorrido () : string{            
             return new Date(this.tempoEmSegundos * 1000).toISOString().substr(11,8)
         }
     },
 
     methods: {
+        //iniciando o cronometro
         iniciar() {
-            setInterval(() => {
+            this.cronometro = setInterval(() => {
                 this.tempoEmSegundos += 1
-            }, 1000)
-            console.log("iniciando")
+            }, 1000)            
         },
+        //finalizando  o cronometro 
         finalizar() {
-            console.log("finalizando")
+            clearInterval(this.cronometro)                          
         }
     }
 })
