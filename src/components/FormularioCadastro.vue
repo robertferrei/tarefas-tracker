@@ -7,9 +7,7 @@
 
             <div class="column">
                 <div class="is-flex is-align-items-center is-justify-content-space-between">
-                    <section>
-                        <strong>{{ tempoDecorrido }}</strong>
-                    </section>
+                    <CronometroRelogio :tempoEmSegundos="tempoEmSegundos"/>
                     <button class="button" @click="iniciar">
                         <span class="icon">
                             <i class="fas fa-play"></i>
@@ -32,8 +30,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import CronometroRelogio from './CronometroRelogio.vue';
+
 export default defineComponent({
     name: 'FormularioCadastro',
+    components:{ CronometroRelogio },
 
     data() {
         return {
@@ -41,12 +42,7 @@ export default defineComponent({
             cronometro:0,
         }
     },
-    computed: {
-        //adicionando um tempo decorrido para o conometro 
-        tempoDecorrido () : string{            
-            return new Date(this.tempoEmSegundos * 1000).toISOString().substr(11,8)
-        }
-    },
+  
 
     methods: {
         //iniciando o cronometro
