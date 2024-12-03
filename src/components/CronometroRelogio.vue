@@ -29,6 +29,6 @@
 
 <style scoped>
  .tempo{
-    color:black
+    color:rgb(194, 177, 177)
  }
 </style>
