@@ -1,28 +1,31 @@
 
 <template>
-    <div class="box" has-text-weight-bold>
+    <BoxQuadrado>
         <div class="columns">
             <div class="column is-7">
-                {{tarefa.descricao}}
+                {{tarefa.descricao || 'Tarefa sem descriçao'}}
             </div>
             <div class="column">
                 <CronometroRelogio :tempo-em-segundos="tarefa.duracaoEmSegundos"/>
             </div>
+            
         </div>
-    </div>
+    </BoxQuadrado>
 </template>
 
 
 <script lang="ts">
     import { defineComponent, PropType} from 'vue';
     import CronometroRelogio from './CronometroRelogio.vue';    
-    import ITarefa from '../interfaces/ITarefa'    
+    import ITarefa from '../interfaces/ITarefa'
+    import BoxQuadrado from './BoxQuadrado.vue';    
 
     export default defineComponent ({
         name: 'TarefasGerais',
          
         components:{
-            CronometroRelogio
+            CronometroRelogio,
+            BoxQuadrado
         },
         props:{
             tarefa: {
@@ -37,12 +40,3 @@
 </script>
 
 
-<style scoped>
- .box{
-    background-color: #faf0ca;
- }
- .column{
-    color: black;
- }
-
-</style>
