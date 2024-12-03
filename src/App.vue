@@ -6,7 +6,11 @@
     <div class="column is-three-quarter">
       <FormularioCadastro @aoSalvarTarefa = "salvarTarefa" />
       <div class="lista">
+   
         <TarefasGerais v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa"/>                
+        <BoxQuadrado v-if="tarefas.length <=0">
+          Voce não esta muito produtivo hoje :(
+        </BoxQuadrado>
       </div>
     </div>
   </main>
@@ -18,13 +22,17 @@ import BarraLateral from './components/BarraLateral.vue'
 import FormularioCadastro from './components/FormularioCadastro.vue'
 import TarefasGerais from './components/TarefasGerais.vue';
 import ITarefa from './interfaces/ITarefa';
+import BoxQuadrado from './components/BoxQuadrado.vue';
+
 
 export default defineComponent({
   name: 'App',
   components: {
     BarraLateral,
     FormularioCadastro,
-    TarefasGerais
+    TarefasGerais,
+    BoxQuadrado
+    
   },
   data(){
     return{
